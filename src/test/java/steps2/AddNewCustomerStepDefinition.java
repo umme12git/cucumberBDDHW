@@ -1,7 +1,5 @@
 package steps2;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -72,7 +70,7 @@ public class AddNewCustomerStepDefinition extends TestBase{
 		String expectedTitle = "Codefios";
 		String actualTitle = loginpage.landedOnDashboardPage();
 		try {
-			assertEquals("did not land on dashboard page",expectedTitle, actualTitle);
+			Assert.assertEquals("did not land on dashboard page",expectedTitle, actualTitle);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
@@ -94,7 +92,7 @@ public class AddNewCustomerStepDefinition extends TestBase{
 		if(field.equalsIgnoreCase("accountName")) {
 			accountlistpage.enterAccountName(accountData);
 			this.accntName = accountData;
-			System.out.println("account name is "+accntName);
+			//System.out.println("account name is "+accntName);
 		}
 		else if(field.equalsIgnoreCase("description")) {
 			accountlistpage.enterDescription(accountData);
@@ -114,12 +112,12 @@ public class AddNewCustomerStepDefinition extends TestBase{
 	
 	@Then ("User should be able to validate new account created successfully")
 	public void validate_new_account_validation() {
-		String actualElement;
+		//String actualElement;
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")));
-		actualElement =driver.findElement
-				(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")).getText(); 
-		assertEquals("account was not created successfully", accntName, actualElement);	
+		//actualElement = driver.findElement(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")).getText(); 
+		Assert.assertEquals("account was not created successfully", accntName, driver.findElement(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")).getText());
+		
 	}
 	
 	@After
