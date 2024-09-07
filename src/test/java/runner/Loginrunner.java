@@ -10,7 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 				glue = "steps2",
 				strict = true,
 				monochrome = true,
-				tags = "@addaccountscenario1",
+				tags = "@addaccountfeature",
+				//"@addaccountscenario1",
 				dryRun = false,
 				plugin = {
 						"pretty",

@@ -114,9 +114,10 @@ public class AddNewCustomerStepDefinition extends TestBase{
 	public void validate_new_account_validation() {
 		//String actualElement;
 		WebDriverWait wait = new WebDriverWait(driver,30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")));
 		//actualElement = driver.findElement(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")).getText(); 
 		Assert.assertEquals("account was not created successfully", accntName, driver.findElement(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")).getText());
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody[@id = \"tBody\"]/tr[1]/td[2]")));
 		
 	}
 	
